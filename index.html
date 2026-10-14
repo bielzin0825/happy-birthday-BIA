@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um Presente Especial para uma vampira especial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Seção de Boas-vindas -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">🎁 Um Presente Especial para uma vampira especial</h1>
+                <p class="subtitle">espero que goste, é um presente meu e do fabin. É simples mais com carinho kskssk.
+                </p>
+            </div>
+        </header>
+
+        <!-- Seção de Mensagem -->
+        <section class="message-section">
+            <div class="message-box">
+                <h2>💌 Uma Mensagem para Você</h2>
+                <p class="message-text" id="messageText">
+                    Fabin: <br>
+                    Feliz aniversário minha Negrin obrigado por sempre tirar risadas minhas e me fazer feliz todos os
+                    dias te amo muito quero aproveitar esse restinho do ano ao seu lado pq próx ano só Deus sabe onde
+                    vamos está e eu já estou com saudades❤️❤️❤️❤️❤️ <br> <br>
+                    Gabriel: <br>
+                    Feliz Aniversário bia, que seu dia seja repleto e felicidades e muitas graças de bençãos. Você é uma
+                    pessoa querida por muitas pessoas e com o seu jeitinho de ser agrada muitas pessoas e fazem muitas
+                    pessoas rirem com seus bordões e suas palhaçadas, você é uma pessoa maravilhosa e continue sendo
+                    essa pessoa que você é. Estou lhe conhecendo melhor agora mais espero que a gnt possa continuar.
+                    Espero que aproveite bastante seu dia, que ele seja bastante feliz e que você possa aproveitar
+                    bastante e testar seus 18 anos comprando bebida ksksksk. Você merece tudo de bom na sua vida e tudo
+                    que vinher de bom. Parabéns minha neném!!
+                </p>
+            </div>
+        </section>
+
+        <!-- Seção de Galeria de Fotos -->
+        <section class="gallery-section">
+            <h2>📸 Nossas Melhores Memórias</h2>
+            <div class="gallery-container">
+                <!-- EDITE AQUI: Adicione as URLs das suas fotos -->
+                <!-- Exemplo: <img src="https://example.com/foto1.jpg" alt="Foto 1" class="gallery-item"> -->
+
+                <div class="gallery-item-wrapper">
+                    <img src="fotos/foto1.jpeg" alt="Foto 1" class="gallery-item">
+                    <div class="photo-label">Momento Especial: contraturno</div>
+                </div>
+
+                <div class="gallery-item-wrapper">
+                    <img src="fotos/foto2.jpeg" alt="Foto 2" class="gallery-item">
+                    <div class="photo-label">Momento Especial: Meu niver</div>
+                </div>
+
+                <div class="gallery-item-wrapper">
+                    <img src="fotos/foto3.jpeg" alt="Foto 3" class="gallery-item">
+                    <div class="photo-label">Momento Especial: vagabundando contraturno </div>
+                </div>
+
+                <div class="gallery-item-wrapper">
+                    <img src="fotos/foto4.jpeg" alt="Foto 4" class="gallery-item">
+                    <div class="photo-label">Momento Especial: aulinha </div>
+                </div>
+
+                <div class="gallery-item-wrapper">
+                    <img src="fotos/foto5.jpeg" alt="Foto 5" class="gallery-item">
+                    <div class="photo-label">Momento Especial: two infinite loves </div>
+                </div>
+
+                <div class="gallery-item-wrapper">
+                    <img src="fotos/foto6.jpeg" alt="Foto 6" class="gallery-item">
+                    <div class="photo-label">Momento Especial:Os melhores </div>
+                </div>
+
+                <div class="gallery-item-wrapper">
+                    <img src="fotos/foto7.jpeg" alt="Foto 7" class="gallery-item">
+                    <div class="photo-label">Momento Especial: Os totosos</div>
+                </div>
+
+                <div class="gallery-item-wrapper">
+                    <img src="fotos/foto8.jpeg" alt="Foto 8" class="gallery-item">
+                    <div class="photo-label">Momento Especial:De novo os melhores </div>
+                </div>
+
+                <div class="gallery-item-wrapper">
+                    <img src="fotos/foto9.jpeg" alt="Foto 9" class="gallery-item">
+                    <div class="photo-label">Momento Especial:  OS GOSTOSOS</div>
+                </div>
+
+                <div class="gallery-item-wrapper">
+                    <img src="fotos/foto10.jpeg" alt="Foto 10" class="gallery-item">
+                    <div class="photo-label">Momento Especial: Melhor dia de cinema </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Interatividade -->
+        <section class="interactive-section">
+            <div class="heart-container">
+                <button class="heart-button" id="heartButton" title="Clique para enviar amor!">❤️</button>
+                <p class="heart-counter"> Você recebeu <span id="heartCount">10000</span> corações</p>
+            </div>
+        </section>
+
+        <!-- Seção de Rodapé -->
+        <footer class="footer">
+            <p>Feito com ❤️ especialmente para você</p>
+            <p class="footer-date" id="footerDate"></p>
+        </footer>
+    </div>
+
+
+
+<!-- Visualizador de fotos ampliadas -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+    <button
+        class="lightbox-close"
+        id="lightboxClose"
+        type="button"
+        aria-label="Fechar imagem"
+    >&times;</button>
+
+    <img
+        class="lightbox-image"
+        id="lightboxImage"
+        src=""
+        alt="Imagem ampliada"
+    >
+</div>
+
+<script>
+(function () {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const closeButton = document.getElementById('lightboxClose');
+
+    function abrirImagem(foto) {
+        lightboxImage.src = foto.src;
+        lightboxImage.alt = foto.alt || 'Imagem ampliada';
+
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function fecharImagem() {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImage.src = '';
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.gallery-item').forEach(function (foto) {
+        foto.addEventListener('click', function () {
+            abrirImagem(foto);
+        });
+
+        foto.style.cursor = 'zoom-in';
+    });
+
+    closeButton.addEventListener('click', fecharImagem);
+
+    lightbox.addEventListener('click', function (event) {
+        if (event.target === lightbox) {
+            fecharImagem();
+        }
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            fecharImagem();
+        }
+    });
+})();
+</script>
+
+<script src="script.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

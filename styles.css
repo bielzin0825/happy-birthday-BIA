@@ -1,0 +1,442 @@
+/* ========================================
+   SITE DE PRESENTE - ESTILOS CSS
+   ======================================== */
+
+/* Importar fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Variáveis de Cores */
+:root {
+    --primary-color: #FF6B9D;      /* Rosa quente */
+    --secondary-color: #FFA07A;    /* Salmão */
+    --accent-color: #e7e704;       /* Ouro */
+    --bg-color: #080808;           /* Fundo creme claro */
+    --text-color: #FF6B9D;         /* Texto escuro */
+    --light-text: #000000;         /* Texto claro */
+    --border-color: #e44d02;       /* Borda clara */
+}
+
+/* Reset e Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ========================================
+   HEADER - SEÇÃO DE BOAS-VINDAS
+   ======================================== */
+
+.header {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #FF6B9D 0%, #FFA07A 100%);
+    border-radius: 20px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.2);
+    animation: slideDown 0.8s ease-out;
+}
+
+.header-content {
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 243, 243, 0.95);
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   MESSAGE SECTION - CAIXA DE MENSAGEM
+   ======================================== */
+
+.message-section {
+    margin-bottom: 60px;
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.message-box {
+    background: white;
+    border-left: 5px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.message-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.15);
+}
+
+.message-box h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.message-text {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* ========================================
+   GALLERY SECTION - GALERIA DE FOTOS
+   ======================================== */
+
+.gallery-section {
+    margin-bottom: 60px;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.gallery-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.gallery-item-wrapper {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: scaleIn 0.6s ease-out;
+}
+
+.gallery-item-wrapper:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.2);
+}
+
+.gallery-item {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item-wrapper:hover .gallery-item {
+    transform: scale(1.1);
+}
+
+.photo-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    padding: 20px 15px 15px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item-wrapper:hover .photo-label {
+    opacity: 1;
+}
+
+/* ========================================
+   INTERACTIVE SECTION - BOTÃO DE CORAÇÃO
+   ======================================== */
+
+.interactive-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, rgba(238, 5, 83, 0.1), rgba(255, 160, 122, 0.1));
+    border-radius: 20px;
+    margin-bottom: 60px;
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.heart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.heart-button {
+    font-size: 4rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    animation: pulse 2s infinite;
+}
+
+.heart-button:hover {
+    transform: scale(1.2);
+}
+
+.heart-button:active {
+    transform: scale(0.95);
+}
+
+.heart-counter {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ========================================
+   FOOTER - RODAPÉ
+   ======================================== */
+
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 2px solid var(--border-color);
+    color: var(--light-text);
+    font-size: 0.95rem;
+    animation: fadeInUp 1s ease-out 1s both;
+}
+
+.footer-date {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+}
+
+/* ========================================
+   ANIMAÇÕES
+   ======================================== */
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .gallery-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .gallery-item {
+        height: 200px;
+    }
+
+    .message-box {
+        padding: 25px;
+    }
+
+    .message-box h2 {
+        font-size: 1.4rem;
+    }
+
+    .message-text {
+        font-size: 0.95rem;
+    }
+
+    .heart-button {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    .header {
+        padding: 40px 15px;
+        margin-bottom: 30px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .gallery-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .gallery-item {
+        height: 250px;
+    }
+
+    .message-box {
+        padding: 20px;
+    }
+
+    .message-text {
+        font-size: 0.9rem;
+    }
+
+    .heart-button {
+        font-size: 2.5rem;
+    }
+}
+
+
+/* Ampliar fotos ao clicar */
+.gallery-item {
+    cursor: zoom-in;
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.88);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-image {
+    display: block;
+    max-width: 92vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transform: scale(0.96);
+    transition: transform 0.25s ease;
+}
+
+.lightbox.active .lightbox-image {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 14px;
+    right: 22px;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 2.8rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.lightbox-close:hover {
+    color: var(--primary-color);
+}
+
+@media (max-width: 480px) {
+    .lightbox {
+        padding: 16px;
+    }
+
+    .lightbox-image {
+        max-width: 96vw;
+        max-height: 86vh;
+    }
+
+    .lightbox-close {
+        top: 8px;
+        right: 14px;
+    }
+}
